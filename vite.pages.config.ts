@@ -3,10 +3,11 @@ import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 
-/** Static build for GitHub Pages at https://mattcodlin.github.io/diffstab/ */
+/** Static build for GitHub Pages. Relative base works at both
+ *  https://diffstab.cods.co.nz/ and https://mattcodlin.github.io/diffstab/ */
 export default defineConfig({
   root: fileURLToPath(new URL("./pages", import.meta.url)),
-  base: "/diffstab/",
+  base: "./",
   publicDir: fileURLToPath(new URL("./pages/public", import.meta.url)),
   plugins: [react(), tailwindcss()],
   resolve: {
