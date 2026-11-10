@@ -25,8 +25,26 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
       - run: npm install
+      - name: Assemble calculator
+        run: |
+          cat src/components/calcb64/p00 \
+            src/components/calcb64/p01 \
+            src/components/calcb64/p02 \
+            src/components/calcb64/p03 \
+            src/components/calcb64/p04 \
+            src/components/calcb64/p05 \
+            src/components/calcb64/p06 \
+            src/components/calcb64/p07 \
+            src/components/calcb64/p08 \
+            src/components/calcb64/p09 \
+            src/components/calcb64/p10 \
+            src/components/calcb64/p11 \
+            src/components/calcb64/p12 \
+            src/components/calcb64/p13 \
+            src/components/calcb64/p14 \
+            src/components/calcb64/p15 | base64 -d > src/components/calculator.tsx
+          wc -c src/components/calculator.tsx
       - run: npm run build
       - name: Enable GitHub Pages
         continue-on-error: true
